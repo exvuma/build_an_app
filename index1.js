@@ -17,5 +17,5 @@ async function handleRequest(request) {
         response = new Response('Not found', { status: 404 })
     }
 
-    return response
+    return new Response('Not found', { status: 404 })
 }

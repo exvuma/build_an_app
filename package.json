@@ -1,0 +1,26 @@
+{
+ "name": "build-an-app",
+ "version": "1.0.0",
+ "description": "Cloudflare serverless deployment for enterprise customers",
+ "main": "index1.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "format": "prettier --write '**/*.{js,css,md}'"
+ },
+ "author": "cloudflare",
+ "license": "MIT",
+ "devDependencies": {
+  "husky": "^2.2.0",
+  "prettier": "^1.17.0",
+  "serverless-cloudflare-workers": "^1.2.0"
+ },
+ "dependencies": {
+  "qs": "^6.7.0"
+ },
+ "husky": {
+  "hooks": {
+   "pre-commit": "npm  run format",
+   "pre-push": "npm  run format"
+  }
+ }
+}

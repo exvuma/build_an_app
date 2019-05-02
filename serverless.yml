@@ -1,0 +1,37 @@
+# serverless.yml
+
+service:
+    name: tutorial2
+    config:
+      accountId: 95e065d2e3f97a1e50bae58aea71df6d 
+      zoneId: ef47aa23b6bf53a4d334b7e3f3579c56 
+provider:
+  name: cloudflare
+
+plugins:
+  - serverless-cloudflare-workers
+functions:
+  build_app:
+    # What the script will be called on Cloudflare
+    worker: build_app
+    webpack: true
+    # The name of the script on your machine, omitting the .js file extension
+    script: index1
+    # Events are only relevant to the `serverless invoke` command and don’t affect deployment in any way
+    events:
+      - http:
+          url: workers-tooling.cf/lookup*
+          method: POST
+          headers:
+            someKey: someValue
+
+
+  # # Only Enterprise accounts would be allowed to add this second function and its corresponding route above
+  # build_app2:
+  #   worker: build_app_script
+  #   script: index1
+  #   webpack: true
+  #   events:
+  #     - http:
+  #         url: http://workers-tooling.cf/lookup
+  #         method: POST
