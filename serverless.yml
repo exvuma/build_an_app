@@ -20,7 +20,7 @@ functions:
     # Events are only relevant to the `serverless invoke` command and don’t affect deployment in any way
     events:
       - http:
-          url: workers-tooling.cf/lookup*
+          url: workers-tooling.cf/lookup #i manually went in and added routes to lookup/* and webhook/*
           method: POST
           headers:
             someKey: someValue
